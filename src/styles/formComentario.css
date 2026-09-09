@@ -1,0 +1,125 @@
+.form-comentario {
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+}
+
+.form-titulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #d4af37;
+}
+
+.form-grupo {
+  margin-bottom: 0.9rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.82rem;
+  color: #888888;
+  margin-bottom: 0.35rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-family: inherit;
+  font-size: 0.88rem;
+  padding: 0.6rem 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #d4af37;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.estrellas-selector {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.estrella-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: #333333;
+  transition: color 0.15s, transform 0.15s;
+  padding: 0;
+  line-height: 1;
+}
+
+.estrella-btn.activa {
+  color: #ffd700;
+}
+
+.estrella-btn:hover {
+  transform: scale(1.15);
+}
+
+.form-acciones {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-enviar {
+  background: #d4af37;
+  color: #0d0d0d;
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.3rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-enviar:hover {
+  opacity: 0.85;
+}
+
+.btn-enviar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-cancelar {
+  background: transparent;
+  color: #888888;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 8px;
+  padding: 0.55rem 1.3rem;
+  font-family: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-cancelar:hover {
+  border-color: #888888;
+  color: #f0f0f0;
+}
+
+.form-error {
+  color: #ef4444;
+  font-size: 0.83rem;
+  margin-top: 0.4rem;
+}

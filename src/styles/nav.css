@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-link {
+  color: #888888;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #d4af37;
+}
+
+.nav-btn-registro {
+  background: rgba(212, 175, 55, 0.15);
+  color: #d4af37;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-btn-registro:hover {
+  background: #d4af37;
+  color: #000;
+}
+

@@ -1,0 +1,214 @@
+.home-pagina {
+  padding: 2rem 0;
+}
+
+.home-hero {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+}
+
+.home-hero-titulo {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+}
+
+.home-hero-titulo span {
+  color: #d4af37;
+}
+
+.home-hero-texto {
+  color: #888888;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+}
+
+.home-hero-botones {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.home-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  background: #d4af37;
+  color: #0d0d0d;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.home-hero-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.home-btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f0f0f0;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.home-btn-secundario:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+}
+
+.home-divisor {
+  border: none;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  margin: 2.5rem 0;
+}
+
+.home-seccion-titulo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+.home-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.home-tarjeta {
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease, border-color 0.2s;
+}
+
+.home-tarjeta:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.home-tarjeta-icono {
+  font-size: 2.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.home-tarjeta-titulo {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #f0f0f0;
+}
+
+.home-tarjeta-texto {
+  color: #888888;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.home-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.home-pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.home-paso-card {
+  background: #151515;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.paso-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #d4af37;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.home-paso-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.home-paso-card p {
+  color: #888;
+  font-size: 0.88rem;
+}
+
+.home-banner-vendedor {
+  background: linear-gradient(135deg, #1f1d18 0%, #111 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.banner-info h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.banner-info p {
+  color: #aaa;
+  font-size: 0.95rem;
+  max-width: 500px;
+}
+

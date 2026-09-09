@@ -1,0 +1,36 @@
+.resenas-pagina {
+  padding: 2rem 0;
+}
+
+.resenas-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #d4af37;
+}
+
+.resenas-subtitulo {
+  color: #888888;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.resenas-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.resenas-cargando,
+.resenas-vacio {
+  padding: 3rem;
+  text-align: center;
+  color: #888888;
+  font-size: 1rem;
+}
+
+.resenas-error {
+  padding: 3rem;
+  text-align: center;
+  color: #ef4444;
+  font-size: 1rem;
+}

@@ -1,0 +1,42 @@
+.cryptos-pagina {
+  padding: 2rem 0;
+}
+
+.cryptos-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #d4af37;
+}
+
+.cryptos-lista {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.cryptos-item {
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  color: #f0f0f0;
+  transition: border-color 0.2s;
+}
+
+.cryptos-item:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.cryptos-cargando,
+.cryptos-vacio {
+  padding: 3rem;
+  text-align: center;
+  color: #888888;
+}
+
+.cryptos-error {
+  padding: 3rem;
+  text-align: center;
+  color: #ef4444;
+}

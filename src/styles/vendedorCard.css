@@ -1,0 +1,151 @@
+.vendedor-carta {
+  background: #1a1a1a;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.vendedor-carta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.vendedor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.vendedor-info {
+  flex: 1;
+}
+
+.vendedor-nombre {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #f0f0f0;
+}
+
+.vendedor-moneda {
+  display: inline-block;
+  background: #d4af37;
+  color: #0d0d0d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+}
+
+.vendedor-estrellas-wrap {
+  text-align: right;
+}
+
+.vendedor-estrellas {
+  display: flex;
+  gap: 0.15rem;
+  font-size: 1.35rem;
+  justify-content: flex-end;
+}
+
+.estrella-activa {
+  color: #ffd700;
+}
+
+.estrella-vacia {
+  color: #333333;
+}
+
+.vendedor-promedio {
+  font-size: 0.8rem;
+  color: #888888;
+  margin-top: 0.2rem;
+}
+
+.vendedor-descripcion {
+  color: #888888;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  font-size: 0.93rem;
+}
+
+.comentarios-seccion {
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding-top: 1.25rem;
+}
+
+.comentarios-titulo {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #888888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+}
+
+.comentario-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.comentario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.comentario-autor {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #d4af37;
+}
+
+.comentario-estrellas {
+  font-size: 0.8rem;
+}
+
+.comentario-texto {
+  font-size: 0.88rem;
+  color: #888888;
+  line-height: 1.55;
+}
+
+.comentario-fecha {
+  font-size: 0.72rem;
+  color: #555555;
+  margin-top: 0.35rem;
+}
+
+.sin-comentarios {
+  text-align: center;
+  color: #555555;
+  font-size: 0.88rem;
+  padding: 0.8rem;
+}
+
+.btn-comentar {
+  margin-top: 1rem;
+  background: transparent;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.88rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-comentar:hover {
+  background: #d4af37;
+  color: #0d0d0d;
+}
