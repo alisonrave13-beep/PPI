@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaCheck } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import '../styles/contacto.css';
 
 const Contacto = () => {
@@ -21,16 +21,16 @@ const Contacto = () => {
     <section className="contacto-pagina">
       <h1 className="contacto-titulo">Contactanos</h1>
       <p className="contacto-subtitulo">
-        Tienes alguna duda o quieres denunciar a un bendedor falso? Escribenos un mensaje.
+        Tienes alguna duda o quieres denunciar a un vendedor falso? Escribenos un mensaje.
       </p>
 
       <div className="contacto-contenedor">
         <div className="contacto-info">
-          <h3>Informasion de Contacto</h3>
+          <h3>Informacion de Contacto</h3>
           <p className="info-desc">Estamos disponibles para ayudarte en la comunidad crypto.</p>
           
           <div className="info-item">
-            <FaEnvelope className="info-icono" />
+            <FaEnvelope className="info-icono" style={{ color: '#d4af37' }} />
             <div>
               <strong>Correo electronico</strong>
               <p>soporte@cryptonguard.com</p>
@@ -38,7 +38,7 @@ const Contacto = () => {
           </div>
 
           <div className="info-item">
-            <FaPhone className="info-icono" />
+            <FaPhone className="info-icono" style={{ color: '#d4af37' }} />
             <div>
               <strong>Telefono / Whatsapp</strong>
               <p>+57 300 123 4567</p>
@@ -46,9 +46,9 @@ const Contacto = () => {
           </div>
 
           <div className="info-item">
-            <FaMapMarkerAlt className="info-icono" />
+            <FaMapMarkerAlt className="info-icono" style={{ color: '#d4af37' }} />
             <div>
-              <strong>Ubicasion</strong>
+              <strong>Ubicacion</strong>
               <p>Colombia - Comunidad Crypto Latam</p>
             </div>
           </div>
@@ -57,7 +57,7 @@ const Contacto = () => {
         <div className="contacto-form-card">
           {enviado && (
             <div className="contacto-exito">
-              <FaCheck style={{ marginRight: '8px' }} /> Tu mensatje ha sido enbiado con exito. Te responderemos pronto!
+              Tu mensaje ha sido enviado con exito. Te responderemos pronto!
             </div>
           )}
 
@@ -85,10 +85,10 @@ const Contacto = () => {
             </div>
 
             <div className="form-grupo">
-              <label>Mensatje o Consulta *</label>
+              <label>Mensaje o Consulta *</label>
               <textarea
                 rows="4"
-                placeholder="Escribe tu mensatje detallado aqui..."
+                placeholder="Escribe tu mensaje detallado aqui..."
                 value={mensajeText}
                 onChange={(e) => setMensajeText(e.target.value)}
                 required
@@ -96,7 +96,7 @@ const Contacto = () => {
             </div>
 
             <button type="submit" className="btn-enviar-contacto">
-              <FaPaperPlane style={{ marginRight: '8px' }} /> Enbiar Mensatje
+              Enviar Mensaje
             </button>
           </form>
         </div>
@@ -106,3 +106,4 @@ const Contacto = () => {
 };
 
 export default Contacto;
+

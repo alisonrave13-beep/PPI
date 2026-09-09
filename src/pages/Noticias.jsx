@@ -1,11 +1,11 @@
 import { useNoticias } from '../hooks/useNoticias';
-import { FaArrowRight, FaNewspaper } from 'react-icons/fa';
+import { FaNewspaper } from 'react-icons/fa';
 import '../styles/noticias.css';
 
 const Noticias = () => {
   const { noticias, cargando, error } = useNoticias();
 
-  if (cargando) return <p className="noticias-cargando">Cargando ultimas notisias...</p>;
+  if (cargando) return <p className="noticias-cargando">Cargando ultimas noticias...</p>;
   if (error) return <p className="noticias-error">{error}</p>;
 
   const [destacada, ...resto] = noticias;
@@ -13,10 +13,10 @@ const Noticias = () => {
   return (
     <section className="noticias-pagina">
       <h1 className="noticias-titulo">
-        <FaNewspaper style={{ marginRight: '10px', color: '#ffb703' }} />
-        Notisias Crypto
+        <FaNewspaper style={{ marginRight: '10px', color: '#d4af37' }} />
+        Noticias Crypto
       </h1>
-      <p className="noticias-subtitulo">Las ultimas notisias mas inportantes del mundo crypto.</p>
+      <p className="noticias-subtitulo">Las ultimas noticias mas importantes del mundo crypto.</p>
 
       {destacada && (
         <a className="noticia-destacada" href={destacada.url} target="_blank" rel="noreferrer">
@@ -31,7 +31,7 @@ const Noticias = () => {
             <h2 className="noticia-titulo-grande">{destacada.title}</h2>
             <p className="noticia-cuerpo">{destacada.body}</p>
             <span className="noticia-leer-mas">
-              Leer artysulo <FaArrowRight style={{ marginLeft: '6px' }} />
+              Leer articulo
             </span>
           </div>
         </a>
@@ -53,7 +53,7 @@ const Noticias = () => {
               <h3 className="noticia-carta-titulo">{n.title}</h3>
               <p className="noticia-carta-cuerpo">{n.body}</p>
               <span className="noticia-leer-mas">
-                Leer mas <FaArrowRight style={{ marginLeft: '6px' }} />
+                Leer mas
               </span>
             </div>
           </a>
@@ -64,4 +64,5 @@ const Noticias = () => {
 };
 
 export default Noticias;
+
 

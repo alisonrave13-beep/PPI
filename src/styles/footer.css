@@ -1,0 +1,92 @@
+.footer {
+  background: #0d0d0d;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 3rem 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.footer-contenido {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-contenido {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.logo-icono {
+  color: #d4af37;
+  font-size: 1.4rem;
+}
+
+.brand-desc {
+  color: #777;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.footer-columnas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer-col h4 {
+  color: #d4af37;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.footer-col a {
+  display: block;
+  color: #999;
+  text-decoration: none;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #fff;
+}
+
+.footer-redes {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-redes a {
+  color: #aaa;
+  font-size: 1.3rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.footer-redes a:hover {
+  color: #d4af37;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #555;
+  font-size: 0.8rem;
+}

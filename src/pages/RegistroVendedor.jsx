@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { supabase } from '../utils/supabase';
-import { FaUserPlus, FaCheck, FaStore } from 'react-icons/fa';
+import { FaStore } from 'react-icons/fa';
 import '../styles/registroVendedor.css';
 
 const RegistroVendedor = () => {
@@ -16,45 +16,76 @@ const RegistroVendedor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!nombre.trim() || !descripcion.trim()) {
-      setError('Por fabor completa todos los canpos obligatorios.');
+      setError('Por favor completa todos los campos obligatorios.');
       return;
     }
 
     setCargando(true);
     setError(null);
 
-    const { error: err } = await supabase.from('vendedor').insert([
-      { nombre, moneda, descripcion }
-    ]);
+    const nuevoVendedor = {
+      id: Date.now(),
+      nombre: nombre.trim(),
+      moneda,
+      descripcion: descripcion.trim()
+    };
+
+    let errorSupabase = null;
+    try {
+      const { data, error: err } = await supabase
+        .from('vendedor')
+        .insert([
+          {
+            nombre: nuevoVendedor.nombre,
+            moneda: nuevoVendedor.moneda,
+            descripcion: nuevoVendedor.descripcion
+          }
+        ])
+        .select();
+
+      if (err) {
+        errorSupabase = err;
+        console.error('Error Supabase insert:', err);
+      }
+    } catch (e) {
+      errorSupabase = e;
+      console.error('Exception Supabase insert:', e);
+    }
+
+    const locales = JSON.parse(localStorage.getItem('vendedores_locales') || '[]');
+    locales.push(nuevoVendedor);
+    localStorage.setItem('vendedores_locales', JSON.stringify(locales));
 
     setCargando(false);
-
-    if (err) {
-      setError('Ocurrio un eror al guardar el bendedor. Intenta de nuevo.');
+    if (errorSupabase) {
+      setMensaje('Guardado en la app local (Nota: Supabase requiere activar la politica RLS de insercion).');
     } else {
-      setMensaje('¡Felisidades! Tu perfil de bendedor ha sido creado exitosamente.');
-      setNombre('');
-      setDescripcion('');
-      setTimeout(() => {
-        navigate('/reseñas');
-      }, 1500);
+      setMensaje('Felicidades! Tu perfil de vendedor ha sido guardado exitosamente en Supabase.');
     }
+
+    setNombre('');
+    setDescripcion('');
+    setTimeout(() => {
+      navigate('/reseñas');
+    }, 1500);
   };
+
+
 
   return (
     <section className="registro-pagina">
       <div className="registro-card">
         <h1 className="registro-titulo">
           <FaStore style={{ marginRight: '10px', color: '#d4af37' }} />
-          Registro de Bendedores
+          Registro de Vendedores
         </h1>
         <p className="registro-subtitulo">
-          Unete a nuestra lista de comerciantes crypto y recibe reseñaz de tus clientes.
+          Unete a nuestra lista de comerciantes crypto y recibe reseñas de tus clientes.
         </p>
 
         {mensaje && (
           <div className="mensaje-exito">
-            <FaCheck style={{ marginRight: '8px' }} /> {mensaje}
+            {mensaje}
           </div>
         )}
 
@@ -62,7 +93,7 @@ const RegistroVendedor = () => {
 
         <form onSubmit={handleSubmit} className="registro-formulario">
           <div className="grupo-input">
-            <label>Nombre del Bendedor o Alias *</label>
+            <label>Nombre del Vendedor o Alias *</label>
             <input
               type="text"
               placeholder="Ej: CryptoSanti_P2P"
@@ -84,10 +115,10 @@ const RegistroVendedor = () => {
           </div>
 
           <div className="grupo-input">
-            <label>Descripsion de tus servisios *</label>
+            <label>Descripcion de tus servicios *</label>
             <textarea
               rows="4"
-              placeholder="Escribe aqui los medios de pago ke aceptas, tu horario de atension y condiciones..."
+              placeholder="Escribe aqui los medios de pago que aceptas, tu horario de atencion y condiciones..."
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               required
@@ -95,11 +126,7 @@ const RegistroVendedor = () => {
           </div>
 
           <button type="submit" className="btn-registro" disabled={cargando}>
-            {cargando ? 'Guardando...' : (
-              <>
-                <FaUserPlus style={{ marginRight: '8px' }} /> Crear Perfil de Bendedor
-              </>
-            )}
+            {cargando ? 'Guardando...' : 'Crear Perfil de Vendedor'}
           </button>
         </form>
       </div>
@@ -108,3 +135,4 @@ const RegistroVendedor = () => {
 };
 
 export default RegistroVendedor;
+

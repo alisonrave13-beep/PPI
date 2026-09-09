@@ -4,8 +4,8 @@ import "../styles/nav.css";
 
 const Nav = () => {
   const links = [
-    { to: '/', label: 'Inisio' },
-    { to: '/noticias', label: 'Notisias' },
+    { to: '/', label: 'Inicio' },
+    { to: '/noticias', label: 'Noticias' },
     { to: '/cryptos', label: 'Crypto' },
     { to: '/reseñas', label: 'Reseñas' },
     { to: '/about', label: 'Nosotros' },
@@ -24,7 +24,7 @@ const Nav = () => {
         ))}
         <li>
           <Link to="/registro-vendedor" className="nav-link nav-btn-registro">
-            <FaUserPlus style={{ marginRight: '5px' }} /> Soy Bendedor
+            <FaUserPlus style={{ marginRight: '5px', color: '#d4af37' }} /> Soy Vendedor
           </Link>
         </li>
       </ul>

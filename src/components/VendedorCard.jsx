@@ -1,21 +1,27 @@
 import { useState } from 'react';
+import { FaStar, FaEdit, FaTimes } from 'react-icons/fa';
 import FormComentario from './FormComentario';
 import '../styles/vendedorCard.css';
 
 function estrellas(promedio) {
   return [1, 2, 3, 4, 5].map(n => (
-    <span key={n} className={n <= Math.round(promedio) ? 'estrella-activa' : 'estrella-vacia'}>
-      ★
-    </span>
+    <FaStar
+      key={n}
+      style={{
+        color: n <= Math.round(promedio) ? '#d4af37' : '#333333',
+        marginRight: '2px',
+      }}
+    />
   ));
 }
 
 function promedioDe(lista) {
   if (!lista.length) return 0;
-  return lista.reduce((acc, c) => acc + c.calificacion, 0) / lista.length;
+  return lista.reduce((acc, c) => acc + (Number(c.calificacion) || 0), 0) / lista.length;
 }
 
 function fecha(str) {
+  if (!str) return '';
   return new Date(str).toLocaleDateString('es-CO', {
     day: '2-digit', month: 'short', year: 'numeric',
   });
@@ -37,7 +43,7 @@ const VendedorCard = ({ vendedor, comentarios, onNuevoComentario }) => {
           <p className="vendedor-promedio">
             {promedio > 0
               ? `${promedio.toFixed(1)} / 5 · ${comentarios.length} reseña${comentarios.length !== 1 ? 's' : ''}`
-              : 'Sin reseñas aún'}
+              : 'Sin reseñas aun'}
           </p>
         </div>
       </div>
@@ -48,15 +54,18 @@ const VendedorCard = ({ vendedor, comentarios, onNuevoComentario }) => {
         <p className="comentarios-titulo">Comentarios de la comunidad</p>
 
         {comentarios.length === 0 ? (
-          <p className="sin-comentarios">Sé el primero en comentar.</p>
+          <p className="sin-comentarios">Se el primero en comentar sobre este vendedor.</p>
         ) : (
           comentarios.map(c => (
             <div key={c.id} className="comentario-item">
               <div className="comentario-header">
-                <span className="comentario-autor">{c.nombre || 'Anónimo'}</span>
+                <span className="comentario-autor">{c.nombre || 'Anonimo'}</span>
                 <span className="comentario-estrellas">
                   {[1, 2, 3, 4, 5].map(n => (
-                    <span key={n} style={{ color: n <= c.calificacion ? '#ffd700' : '#333333' }}>★</span>
+                    <FaStar
+                      key={n}
+                      style={{ color: n <= c.calificacion ? '#d4af37' : '#333333', fontSize: '0.85rem' }}
+                    />
                   ))}
                 </span>
               </div>
@@ -66,11 +75,20 @@ const VendedorCard = ({ vendedor, comentarios, onNuevoComentario }) => {
           ))
         )}
 
+
         <button
           className="btn-comentar"
           onClick={() => setMostrarForm(v => !v)}
         >
-          {mostrarForm ? 'Cerrar' : '✏️ Comentar y puntuar'}
+          {mostrarForm ? (
+            <>
+              <FaTimes style={{ marginRight: '6px' }} /> Cerrar
+            </>
+          ) : (
+            <>
+              <FaEdit style={{ marginRight: '6px' }} /> Comentar y puntuar
+            </>
+          )}
         </button>
 
         {mostrarForm && (
@@ -87,3 +105,4 @@ const VendedorCard = ({ vendedor, comentarios, onNuevoComentario }) => {
 };
 
 export default VendedorCard;
+
