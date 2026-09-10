@@ -1,4 +1,4 @@
-import { FaGraduationCap, FaSearch, FaHandshake, FaBookReader } from 'react-icons/fa';
+import { FaGraduationCap, FaSearch, FaHandshake, FaBookReader, FaUser } from 'react-icons/fa';
 import '../styles/about.css';
 
 const About = () => (
@@ -7,12 +7,43 @@ const About = () => (
       <div className="about-emoji">
         <FaGraduationCap style={{ color: '#d4af37', fontSize: '3rem' }} />
       </div>
-      <h1 className="about-titulo">¿quienes somos?</h1>
+      <h1 className="about-titulo">¿quiénes somos?</h1>
       <p className="about-subtitulo">
-        Somos estudiantes de grado once del colejio en La Candelaria, apasionados
+        Los que formamos el quipo somos Alison Rave, Maria clara Arboleda, mateo velasquez, luis Herrera y jeronimo Negrete, studiantes de grado once del colegio La Candelaria, apasionados
         por la tecnologia y convencidos de que entender las criptomonedas no
         deberia ser dificil para nadie.
       </p>
+    </div>
+
+    <div className="about-equipo">
+      <h2 className="about-seccion-titulo">Nuestro equipo</h2>
+      <div className="about-integrantes">
+        <div className="about-integrante">
+          <div className="about-integrante-icono"><FaUser /></div>
+          <span className="about-integrante-numero">01</span>
+          <p>Alison Natalia Rave Bedoya</p>
+        </div>
+        <div className="about-integrante">
+          <div className="about-integrante-icono"><FaUser /></div>
+          <span className="about-integrante-numero">02</span>
+          <p>Maria Clara Arboleda Rueda</p>
+        </div>
+        <div className="about-integrante">
+          <div className="about-integrante-icono"><FaUser /></div>
+          <span className="about-integrante-numero">03</span>
+          <p>Mateo Velasquez Velez</p>
+        </div>
+        <div className="about-integrante">
+          <div className="about-integrante-icono"><FaUser /></div>
+          <span className="about-integrante-numero">04</span>
+          <p>Luis Miguel Herrera Lopez</p>
+        </div>
+        <div className="about-integrante">
+          <div className="about-integrante-icono"><FaUser /></div>
+          <span className="about-integrante-numero">05</span>
+          <p>Jeronimo Negrerte Arango</p>
+        </div>
+      </div>
     </div>
 
     <div className="about-seccion">
@@ -26,7 +57,7 @@ const About = () => (
     </div>
 
     <div className="about-seccion">
-      <h2 className="about-seccion-titulo">¿Por ke lo hacemo?</h2>
+      <h2 className="about-seccion-titulo">¿Por qué lo hacemo?</h2>
       <p className="about-seccion-texto">
         En Colombia muchas personas han perdido dinero por no tener informasion
         confiable sobre vendedores y criptomonedas. Creamos este espasio para que

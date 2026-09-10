@@ -9,6 +9,13 @@
   color: #d4af37;
 }
 
+.cryptos-actualizado {
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+  color: #888888;
+  font-size: 0.9rem;
+}
+
 .cryptos-lista {
   list-style: none;
   display: grid;
@@ -22,6 +29,24 @@
   padding: 1.25rem 1.5rem;
   color: #f0f0f0;
   transition: border-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cryptos-item small {
+  display: block;
+  margin-top: 0.35rem;
+  text-align: right;
+}
+
+.cryptos-subida {
+  color: #22c55e;
+}
+
+.cryptos-bajada {
+  color: #ef4444;
 }
 
 .cryptos-item:hover {
