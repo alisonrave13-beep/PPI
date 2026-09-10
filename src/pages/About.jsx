@@ -7,11 +7,11 @@ const About = () => (
       <div className="about-emoji">
         <FaGraduationCap style={{ color: '#d4af37', fontSize: '3rem' }} />
       </div>
-      <h1 className="about-titulo">¿Kienes somos?</h1>
+      <h1 className="about-titulo">¿quienes somos?</h1>
       <p className="about-subtitulo">
-        Somos estudiantes de grado onse del colejio en La Candelaria, apasionados
+        Somos estudiantes de grado once del colejio en La Candelaria, apasionados
         por la tecnologia y convencidos de que entender las criptomonedas no
-        deberia ser difycil para nadie.
+        deberia ser dificil para nadie.
       </p>
     </div>
 
@@ -29,8 +29,8 @@ const About = () => (
       <h2 className="about-seccion-titulo">¿Por ke lo hacemo?</h2>
       <p className="about-seccion-texto">
         En Colombia muchas personas han perdido dinero por no tener informasion
-        confiable sobre bendedores y criptomonedas. Creamos este espasio para que
-        la comunidad pueda revisar, califikar y comentar bendedores de forma
+        confiable sobre vendedores y criptomonedas. Creamos este espasio para que
+        la comunidad pueda revisar, calificar y comentar vendedores de forma
         anonima y transparente.
       </p>
     </div>
@@ -41,7 +41,7 @@ const About = () => (
           <FaSearch style={{ color: '#00b4d8' }} />
         </div>
         <p className="about-valor-nombre">Transparensia</p>
-        <p className="about-valor-texto">Informasion honesta sobre bendedores y cryptos.</p>
+        <p className="about-valor-texto">Informasion honesta sobre vendedores y cryptos.</p>
       </div>
       <div className="about-valor">
         <div className="about-valor-icono">
