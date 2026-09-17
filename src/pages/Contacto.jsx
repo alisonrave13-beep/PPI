@@ -33,7 +33,7 @@ const Contacto = () => {
             <FaEnvelope className="info-icono" style={{ color: '#d4af37' }} />
             <div>
               <strong>Correo electronico</strong>
-              <p>soporte@cryptonguard.com</p>
+              <p>soportecryptonguard@gmail.com</p>
             </div>
           </div>
 

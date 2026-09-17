@@ -49,18 +49,18 @@ const About = () => (
     <div className="about-seccion">
       <h2 className="about-seccion-titulo">Nuestra mision</h2>
       <p className="about-seccion-texto">
-        Cryptonguard nasio de un proyecto escolar con un objetivo claro: asercar
+        Cryptonguard nacio de un proyecto escolar con un objetivo claro: acercar
         el mundo de las criptomonedas a las personas de nuestra comunidad.
         Queremos que la gente pierda el miedo, entienda como funsionan las cryptos
-        y pueda tomar desisiones informadas antes de conprar.
+        y pueda tomar decisiones informadas antes de conprar.
       </p>
     </div>
 
     <div className="about-seccion">
       <h2 className="about-seccion-titulo">¿Por qué lo hacemo?</h2>
       <p className="about-seccion-texto">
-        En Colombia muchas personas han perdido dinero por no tener informasion
-        confiable sobre vendedores y criptomonedas. Creamos este espasio para que
+        En Colombia muchas personas han perdido dinero por no tener informacion
+        confiable sobre vendedores y criptomonedas. Creamos este espacio para que
         la comunidad pueda revisar, calificar y comentar vendedores de forma
         anonima y transparente.
       </p>
@@ -79,7 +79,7 @@ const About = () => (
           <FaHandshake style={{ color: '#2ec4b6' }} />
         </div>
         <p className="about-valor-nombre">Comunidad</p>
-        <p className="about-valor-texto">Juntos construimos un espasio de confiansa.</p>
+        <p className="about-valor-texto">Juntos construimos un espacio de confiansa.</p>
       </div>
       <div className="about-valor">
         <div className="about-valor-icono">

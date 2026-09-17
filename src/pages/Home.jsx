@@ -50,7 +50,7 @@ const Home = () => (
         El crypto en <span>tu idioma</span>
       </h1>
       <p className="home-hero-texto">
-        Cryptonguard es el espacio de la comunidad para conocer vendedores de
+        Cryptonguard es el espacio de la comunidad para conocer algunos comentarios de unos compradores sobre su expecia con vendedores de
         criptomonedas, compartir experiencias y estar al dia con las noticias
         del mundo crypto.
       </p>
