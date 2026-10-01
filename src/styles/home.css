@@ -212,3 +212,34 @@
   max-width: 500px;
 }
 
+.home-manuales-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1rem;
+}
+
+.home-manual {
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: #151515;
+}
+
+.home-manual summary {
+  color: #d4af37;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.home-manual p {
+  color: #aaa;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+.home-manual h3 {
+  color: #f0f0f0;
+  font-size: 1rem;
+  margin-top: 1.25rem;
+}
+

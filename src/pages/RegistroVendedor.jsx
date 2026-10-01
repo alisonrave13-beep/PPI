@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { supabase } from '../utils/supabase';
+import { appendLocalRecord } from '../utils/localCollections.js';
 import { FaStore } from 'react-icons/fa';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/registroVendedor.css';
 
 const RegistroVendedor = () => {
+  const { t } = useIdioma();
   const navigate = useNavigate();
   const [nombre, setNombre] = useState('');
   const [moneda, setMoneda] = useState('USDT / COP');
@@ -16,7 +19,7 @@ const RegistroVendedor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!nombre.trim() || !descripcion.trim()) {
-      setError('Por favor completa todos los campos obligatorios.');
+      setError(t('Por favor completa todos los campos obligatorios.'));
       return;
     }
 
@@ -24,15 +27,16 @@ const RegistroVendedor = () => {
     setError(null);
 
     const nuevoVendedor = {
-      id: Date.now(),
+      id: `local-${Date.now()}`,
       nombre: nombre.trim(),
       moneda,
       descripcion: descripcion.trim()
     };
 
-    let errorSupabase = null;
+    let guardadoEnSupabase = false;
+    let guardadoLocal = false;
     try {
-      const { data, error: err } = await supabase
+      const { error: errorSupabase } = await supabase
         .from('vendedor')
         .insert([
           {
@@ -40,27 +44,23 @@ const RegistroVendedor = () => {
             moneda: nuevoVendedor.moneda,
             descripcion: nuevoVendedor.descripcion
           }
-        ])
-        .select();
+        ]);
 
-      if (err) {
-        errorSupabase = err;
-        console.error('Error Supabase insert:', err);
-      }
-    } catch (e) {
-      errorSupabase = e;
-      console.error('Exception Supabase insert:', e);
+      if (errorSupabase) throw errorSupabase;
+      guardadoEnSupabase = true;
+    } catch (errorSupabase) {
+      console.error('Error Supabase insert:', errorSupabase);
+      guardadoLocal = appendLocalRecord('vendedores_locales', nuevoVendedor);
     }
 
-    const locales = JSON.parse(localStorage.getItem('vendedores_locales') || '[]');
-    locales.push(nuevoVendedor);
-    localStorage.setItem('vendedores_locales', JSON.stringify(locales));
-
     setCargando(false);
-    if (errorSupabase) {
-      setMensaje('Guardado en la app local (Nota: Supabase requiere activar la politica RLS de insercion).');
+    if (guardadoLocal) {
+      setMensaje(t('Vendedor guardado en este dispositivo. Para compartirlo con otros usuarios, configura Supabase.'));
+    } else if (guardadoEnSupabase) {
+      setMensaje(t('Perfil de vendedor guardado en Supabase.'));
     } else {
-      setMensaje('Felicidades! Tu perfil de vendedor ha sido guardado exitosamente en Supabase.');
+      setError(t('No se pudo guardar el perfil. Inténtalo de nuevo.'));
+      return;
     }
 
     setNombre('');
@@ -77,10 +77,10 @@ const RegistroVendedor = () => {
       <div className="registro-card">
         <h1 className="registro-titulo">
           <FaStore style={{ marginRight: '10px', color: '#d4af37' }} />
-          Registro de Vendedores
+          {t('Registro de Vendedores')}
         </h1>
         <p className="registro-subtitulo">
-          Unete a nuestra lista de comerciantes crypto y recibe reseñas de tus clientes.
+          {t('Unete a nuestra lista de comerciantes crypto y recibe reseñas de tus clientes.')}
         </p>
 
         {mensaje && (
@@ -93,7 +93,7 @@ const RegistroVendedor = () => {
 
         <form onSubmit={handleSubmit} className="registro-formulario">
           <div className="grupo-input">
-            <label>Nombre del Vendedor o Alias *</label>
+            <label>{t('Nombre del Vendedor o Alias *')}</label>
             <input
               type="text"
               placeholder="Ej: CryptoSanti_P2P"
@@ -104,7 +104,7 @@ const RegistroVendedor = () => {
           </div>
 
           <div className="grupo-input">
-            <label>Moneda o Par de Cambio *</label>
+            <label>{t('Moneda o Par de Cambio *')}</label>
             <select value={moneda} onChange={(e) => setMoneda(e.target.value)}>
               <option value="USDT / COP">USDT / COP</option>
               <option value="BTC / COP">BTC / COP</option>
@@ -115,10 +115,10 @@ const RegistroVendedor = () => {
           </div>
 
           <div className="grupo-input">
-            <label>Descripcion de tus servicios *</label>
+            <label>{t('Descripcion de tus servicios *')}</label>
             <textarea
               rows="4"
-              placeholder="Escribe aqui los medios de pago que aceptas, tu horario de atencion y condiciones..."
+              placeholder={t('Escribe aqui los medios de pago que aceptas, tu horario de atencion y condiciones...')}
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               required
@@ -126,7 +126,7 @@ const RegistroVendedor = () => {
           </div>
 
           <button type="submit" className="btn-registro" disabled={cargando}>
-            {cargando ? 'Guardando...' : 'Crear Perfil de Vendedor'}
+            {cargando ? t('Guardando...') : t('Crear Perfil de Vendedor')}
           </button>
         </form>
       </div>

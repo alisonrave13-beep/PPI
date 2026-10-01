@@ -1,8 +1,10 @@
 import { Link } from 'react-router';
 import { FaShieldAlt, FaTwitter, FaTelegram, FaGithub, FaDiscord } from 'react-icons/fa';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/footer.css';
 
 const Footer = () => {
+  const { t } = useIdioma();
   return (
     <footer className="footer">
       <div className="footer-contenido">
@@ -12,28 +14,28 @@ const Footer = () => {
             <span>Cryptonguard</span>
           </div>
           <p className="brand-desc">
-            La plataforma comunitaria para verificar vendedores crypto y estar informado de las ultimas noticias.
+            {t('La plataforma comunitaria para verificar vendedores crypto y estar informado de las ultimas noticias.')}
           </p>
         </div>
 
         <div className="footer-columnas">
           <div className="footer-col">
-            <h4>Navegacion</h4>
-            <Link to="/">Inicio</Link>
-            <Link to="/noticias">Noticias</Link>
-            <Link to="/cryptos">Precios Crypto</Link>
-            <Link to="/reseñas">Reseñas de Vendedores</Link>
+            <h4>{t('Navegacion')}</h4>
+            <Link to="/">{t('Inicio')}</Link>
+            <Link to="/noticias">{t('Noticias')}</Link>
+            <Link to="/cryptos">{t('Precios Crypto')}</Link>
+            <Link to="/reseñas">{t('Reseñas de Vendedores')}</Link>
           </div>
 
           <div className="footer-col">
-            <h4>Vendedores</h4>
-            <Link to="/registro-vendedor">Registrarme como vendedor</Link>
-            <Link to="/reseñas">Lista de vendedores</Link>
-            <Link to="/contacto">Soporte y Denuncias</Link>
+            <h4>{t('Vendedores')}</h4>
+            <Link to="/registro-vendedor">{t('Registrarme como vendedor')}</Link>
+            <Link to="/reseñas">{t('Lista de vendedores')}</Link>
+            <Link to="/contacto">{t('Soporte y Denuncias')}</Link>
           </div>
 
           <div className="footer-col">
-            <h4>Comunidad</h4>
+            <h4>{t('Comunidad')}</h4>
             <div className="footer-redes">
               <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaTwitter style={{ color: '#d4af37' }} /></a>
               <a href="https://telegram.org" target="_blank" rel="noreferrer"><FaTelegram style={{ color: '#d4af37' }} /></a>
@@ -45,7 +47,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>© 2026 Cryptonguard - Proyecto Estudiantil. Todos los derechos reservados.</p>
+        <p>{t('© 2026 Cryptonguard - Proyecto Estudiantil. Todos los derechos reservados.')}</p>
       </div>
     </footer>
   );

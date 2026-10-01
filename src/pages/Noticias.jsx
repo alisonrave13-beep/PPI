@@ -1,12 +1,14 @@
 import { useNoticias } from '../hooks/useNoticias';
 import { FaNewspaper } from 'react-icons/fa';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/noticias.css';
 
 const Noticias = () => {
+  const { t } = useIdioma();
   const { noticias, cargando, error } = useNoticias();
 
-  if (cargando) return <p className="noticias-cargando">Cargando ultimas noticias...</p>;
-  if (error) return <p className="noticias-error">{error}</p>;
+  if (cargando) return <p className="noticias-cargando">{t('Cargando ultimas noticias...')}</p>;
+  if (error) return <p className="noticias-error">{t(error)}</p>;
 
   const [destacada, ...resto] = noticias;
 
@@ -14,9 +16,9 @@ const Noticias = () => {
     <section className="noticias-pagina">
       <h1 className="noticias-titulo">
         <FaNewspaper style={{ marginRight: '10px', color: '#d4af37' }} />
-        Noticias Crypto
+        {t('Noticias Crypto')}
       </h1>
-      <p className="noticias-subtitulo">Las ultimas noticias mas importantes del mundo crypto.</p>
+      <p className="noticias-subtitulo">{t('Las ultimas noticias mas importantes del mundo crypto.')}</p>
 
       {destacada && (
         <a className="noticia-destacada" href={destacada.url} target="_blank" rel="noreferrer">
@@ -28,10 +30,10 @@ const Noticias = () => {
           />
           <div className="noticia-destacada-contenido">
             <p className="noticia-fuente">{destacada.source_info?.name ?? destacada.source}</p>
-            <h2 className="noticia-titulo-grande">{destacada.title}</h2>
-            <p className="noticia-cuerpo">{destacada.body}</p>
+            <h2 className="noticia-titulo-grande">{t(destacada.title)}</h2>
+            <p className="noticia-cuerpo">{t(destacada.body)}</p>
             <span className="noticia-leer-mas">
-              Leer articulo
+              {t('Leer articulo')}
             </span>
           </div>
         </a>
@@ -50,10 +52,10 @@ const Noticias = () => {
             )}
             <div className="noticia-carta-contenido">
               <p className="noticia-fuente">{n.source_info?.name ?? n.source}</p>
-              <h3 className="noticia-carta-titulo">{n.title}</h3>
-              <p className="noticia-carta-cuerpo">{n.body}</p>
+              <h3 className="noticia-carta-titulo">{t(n.title)}</h3>
+              <p className="noticia-carta-cuerpo">{t(n.body)}</p>
               <span className="noticia-leer-mas">
-                Leer mas
+                {t('Leer mas')}
               </span>
             </div>
           </a>

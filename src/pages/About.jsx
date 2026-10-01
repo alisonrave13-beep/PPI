@@ -1,22 +1,24 @@
 import { FaGraduationCap, FaSearch, FaHandshake, FaBookReader, FaUser } from 'react-icons/fa';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/about.css';
 
-const About = () => (
+const About = () => {
+  const { t } = useIdioma();
+
+  return (
   <section className="about-pagina">
     <div className="about-hero">
       <div className="about-emoji">
         <FaGraduationCap style={{ color: '#d4af37', fontSize: '3rem' }} />
       </div>
-      <h1 className="about-titulo">¿quiénes somos?</h1>
+      <h1 className="about-titulo">{t('¿quiénes somos?')}</h1>
       <p className="about-subtitulo">
-        Los que formamos el quipo somos Alison Rave, Maria clara Arboleda, mateo velasquez, luis Herrera y jeronimo Negrete, studiantes de grado once del colegio La Candelaria, apasionados
-        por la tecnologia y convencidos de que entender las criptomonedas no
-        deberia ser dificil para nadie.
+        {t('El equipo está formado por Alison Rave, Maria Clara Arboleda, Mateo Velasquez, Luis Herrera y Jeronimo Negrete, estudiantes de grado once del colegio La Candelaria, apasionados por la tecnología y convencidos de que entender las criptomonedas no debería ser difícil para nadie.')}
       </p>
     </div>
 
     <div className="about-equipo">
-      <h2 className="about-seccion-titulo">Nuestro equipo</h2>
+      <h2 className="about-seccion-titulo">{t('Nuestro equipo')}</h2>
       <div className="about-integrantes">
         <div className="about-integrante">
           <div className="about-integrante-icono"><FaUser /></div>
@@ -47,22 +49,16 @@ const About = () => (
     </div>
 
     <div className="about-seccion">
-      <h2 className="about-seccion-titulo">Nuestra mision</h2>
+        <h2 className="about-seccion-titulo">{t('Nuestra mision')}</h2>
       <p className="about-seccion-texto">
-        Cryptonguard nacio de un proyecto escolar con un objetivo claro: acercar
-        el mundo de las criptomonedas a las personas de nuestra comunidad.
-        Queremos que la gente pierda el miedo, entienda como funsionan las cryptos
-        y pueda tomar decisiones informadas antes de conprar.
+        {t('Cryptonguard nació como un proyecto escolar con un objetivo claro: acercar el mundo de las criptomonedas a nuestra comunidad. Queremos que las personas pierdan el miedo, entiendan cómo funcionan las criptomonedas y tomen decisiones informadas antes de comprar.')}
       </p>
     </div>
 
     <div className="about-seccion">
-      <h2 className="about-seccion-titulo">¿Por qué lo hacemo?</h2>
+        <h2 className="about-seccion-titulo">{t('¿Por qué lo hacemos?')}</h2>
       <p className="about-seccion-texto">
-        En Colombia muchas personas han perdido dinero por no tener informacion
-        confiable sobre vendedores y criptomonedas. Creamos este espacio para que
-        la comunidad pueda revisar, calificar y comentar vendedores de forma
-        anonima y transparente.
+        {t('En Colombia muchas personas han perdido dinero por no tener información confiable sobre vendedores y criptomonedas. Creamos este espacio para que la comunidad pueda revisar, calificar y comentar sobre vendedores de forma anónima y transparente.')}
       </p>
     </div>
 
@@ -71,26 +67,27 @@ const About = () => (
         <div className="about-valor-icono">
           <FaSearch style={{ color: '#00b4d8' }} />
         </div>
-        <p className="about-valor-nombre">Transparensia</p>
-        <p className="about-valor-texto">Informasion honesta sobre vendedores y cryptos.</p>
+        <p className="about-valor-nombre">{t('Transparensia')}</p>
+        <p className="about-valor-texto">{t('Información honesta sobre vendedores y criptomonedas.')}</p>
       </div>
       <div className="about-valor">
         <div className="about-valor-icono">
           <FaHandshake style={{ color: '#2ec4b6' }} />
         </div>
-        <p className="about-valor-nombre">Comunidad</p>
-        <p className="about-valor-texto">Juntos construimos un espacio de confiansa.</p>
+        <p className="about-valor-nombre">{t('Comunidad')}</p>
+        <p className="about-valor-texto">{t('Juntos construimos un espacio de confianza.')}</p>
       </div>
       <div className="about-valor">
         <div className="about-valor-icono">
           <FaBookReader style={{ color: '#ffb703' }} />
         </div>
-        <p className="about-valor-nombre">Educasion</p>
-        <p className="about-valor-texto">Aprende sin miedo sobre el mundo crypto.</p>
+        <p className="about-valor-nombre">{t('Educasion')}</p>
+        <p className="about-valor-texto">{t('Aprende sin miedo sobre el mundo crypto.')}</p>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default About;
 

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { supabase } from '../utils/supabase';
+import { appendLocalRecord } from '../utils/localCollections.js';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/formComentario.css';
 
 const FormComentario = ({ idVendedor, moneda, onExito, onCancelar }) => {
+  const { t } = useIdioma();
   const [nombre, setNombre] = useState('');
   const [comentario, setComentario] = useState('');
   const [calificacion, setCalificacion] = useState(0);
@@ -13,71 +16,78 @@ const FormComentario = ({ idVendedor, moneda, onExito, onCancelar }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!comentario.trim() || calificacion === 0) {
-      setError('Escribe un comentario y selecciona una calificacion.');
+      setError(t('Escribe un comentario y selecciona una calificacion.'));
       return;
     }
     setEnviando(true);
     setError(null);
 
     const nuevoComentario = {
-      id: Date.now(),
+      id: `local-${Date.now()}`,
       idVendedor,
-      nombre: nombre.trim() || 'Anonimo',
+      nombre: nombre.trim() || t('Anonimo'),
       comentario: comentario.trim(),
       calificacion,
       created_at: new Date().toISOString()
     };
 
+    let guardadoEnSupabase = false;
+    let guardadoLocal = false;
     try {
-      await supabase.from('comentario').insert({
+      const { error: errorSupabase } = await supabase.from('comentario').insert({
         nombre: nuevoComentario.nombre,
         comentario: nuevoComentario.comentario,
         calificacion: nuevoComentario.calificacion,
         idVendedor,
         crypto: moneda,
       });
-    } catch (err) {
-      console.log('Comment Supabase insert bypassed:', err);
+      if (errorSupabase) throw errorSupabase;
+      guardadoEnSupabase = true;
+    } catch (errorSupabase) {
+      console.error('Error saving review in Supabase:', errorSupabase);
+      guardadoLocal = appendLocalRecord('comentarios_locales', nuevoComentario);
     }
 
-    const comentariosLocales = JSON.parse(localStorage.getItem('comentarios_locales') || '[]');
-    comentariosLocales.push(nuevoComentario);
-    localStorage.setItem('comentarios_locales', JSON.stringify(comentariosLocales));
-
     setEnviando(false);
-    onExito();
+    if (guardadoLocal) {
+      onExito(true);
+    } else if (guardadoEnSupabase) {
+      onExito(false);
+    } else {
+      setError(t('No se pudo guardar la reseña. Inténtalo de nuevo.'));
+    }
   };
 
 
   return (
     <form className="form-comentario" onSubmit={handleSubmit}>
-      <p className="form-titulo">Dejar un comentario sobre el vendedor</p>
+      <p className="form-titulo">{t('Dejar un comentario sobre el vendedor')}</p>
 
       <div className="form-grupo">
-        <label className="form-label" htmlFor="nombre">Nombre (opcional)</label>
+        <label className="form-label" htmlFor="nombre">{t('Nombre (opcional)')}</label>
         <input
           id="nombre"
           className="form-input"
           type="text"
-          placeholder="Anonimo"
+          placeholder={t('Anonimo')}
           value={nombre}
           onChange={e => setNombre(e.target.value)}
         />
       </div>
 
       <div className="form-grupo">
-        <label className="form-label" htmlFor="comentario">Comentario *</label>
+        <label className="form-label" htmlFor="comentario">{t('Comentario *')}</label>
         <textarea
           id="comentario"
           className="form-textarea"
-          placeholder="Que opinas de este vendedor?"
+          placeholder={t('Que opinas de este vendedor?')}
           value={comentario}
           onChange={e => setComentario(e.target.value)}
         />
       </div>
 
       <div className="form-grupo">
-        <label className="form-label">Calificacion *</label>
+        <label className="form-label">{t('Calificacion *')}</label>
         <div className="estrellas-selector">
           {[1, 2, 3, 4, 5].map(n => (
             <button
@@ -96,10 +106,10 @@ const FormComentario = ({ idVendedor, moneda, onExito, onCancelar }) => {
 
       <div className="form-acciones">
         <button type="submit" className="btn-enviar" disabled={enviando}>
-          {enviando ? 'Enviando...' : 'Publicar'}
+          {enviando ? t('Enviando...') : t('Publicar')}
         </button>
         <button type="button" className="btn-cancelar" onClick={onCancelar}>
-          Cancelar
+          {t('Cancelar')}
         </button>
       </div>
     </form>

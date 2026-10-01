@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useIdioma } from '../useIdioma.js';
 import '../styles/cryptos.css';
 
 const API_URL = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tether,solana,binancecoin&order=market_cap_desc&per_page=5&page=1&sparkline=false&price_change_percentage=24h';
@@ -21,6 +22,7 @@ const formatPrice = price => new Intl.NumberFormat('en-US', {
 const formatChange = change => `${change >= 0 ? '+' : ''}${change.toFixed(2)}%`;
 
 const Cryptos = () => {
+  const { idioma, t } = useIdioma();
   const [cryptos, setCryptos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -62,15 +64,15 @@ const Cryptos = () => {
     };
   }, []);
 
-  if (loading) return <p className="cryptos-cargando">Cargando criptomonedas...</p>;
+  if (loading) return <p className="cryptos-cargando">{t('Cargando criptomonedas...')}</p>;
 
   return (
     <div className="cryptos-pagina">
-      <h1 className="cryptos-titulo">Precios Crypto en Tiempo Real</h1>
-      {error && <p className="cryptos-error">{error}</p>}
+      <h1 className="cryptos-titulo">{t('Precios Crypto en Tiempo Real')}</h1>
+      {error && <p className="cryptos-error">{t(error)}</p>}
       {lastUpdated && (
         <p className="cryptos-actualizado">
-          Actualizado a las {lastUpdated.toLocaleTimeString('es-CO')}. Se actualiza cada 30 segundos.
+          {t('Actualizado a las {hora}. Se actualiza cada 30 segundos.', { hora: lastUpdated.toLocaleTimeString(idioma === 'en' ? 'en-US' : 'es-CO') })}
         </p>
       )}
       <ul className="cryptos-lista">

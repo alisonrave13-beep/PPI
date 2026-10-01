@@ -7,6 +7,8 @@ import Cryptos from "./pages/Cryptos.jsx";
 import Reseñas from "./pages/Reseñas.jsx";
 import Contacto from "./pages/Contacto.jsx";
 import RegistroVendedor from "./pages/RegistroVendedor.jsx";
+import Manuales from "./pages/Manuales.jsx";
+import { IdiomaProvider } from "./i18n.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,7 @@ const router = createBrowserRouter([
       { path: "/reseñas", element: <Reseñas /> },
       { path: "/contacto", element: <Contacto /> },
       { path: "/registro-vendedor", element: <RegistroVendedor /> },
+      { path: "/manuales", element: <Manuales /> },
     ],
   },
 ]);
@@ -27,4 +30,10 @@ const App = () => {
   return <RouterProvider router={router} />;
 };
 
-export default App;
+const AppConIdioma = () => (
+  <IdiomaProvider>
+    <App />
+  </IdiomaProvider>
+);
+
+export default AppConIdioma;

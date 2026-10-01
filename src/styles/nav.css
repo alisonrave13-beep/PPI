@@ -12,6 +12,8 @@
   gap: 2.5rem;
   align-items: center;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-link {
@@ -39,5 +41,31 @@
 .nav-btn-registro:hover {
   background: #d4af37;
   color: #000;
+}
+
+.nav-idioma {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.4rem 0.65rem;
+  background: transparent;
+  color: #f0f0f0;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.nav-idioma:hover {
+  border-color: #d4af37;
+  color: #d4af37;
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
 }
 

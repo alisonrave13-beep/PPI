@@ -1,0 +1,94 @@
+.manuales-pagina {
+  padding: 2.5rem 0 4rem;
+}
+
+.manuales-cabecera {
+  max-width: 720px;
+  margin-bottom: 1.75rem;
+}
+
+.manuales-eyebrow {
+  color: #d4af37;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.manuales-cabecera h1 {
+  color: #f0f0f0;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.manuales-cabecera > p:last-child,
+.manuales-seccion > p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+.manuales-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 0 1.5rem;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.manuales-menu a {
+  color: #d4af37;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  text-decoration: none;
+}
+
+.manuales-menu a:hover,
+.manuales-menu a:focus-visible {
+  background: rgba(212, 175, 55, 0.12);
+}
+
+.manuales-seccion {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  scroll-margin-top: 1rem;
+}
+
+.manuales-seccion h2 {
+  color: #f0f0f0;
+  font-size: 1.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.manuales-pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.25rem 2rem;
+  margin-top: 1.5rem;
+}
+
+.manuales-pasos article {
+  border-top: 2px solid rgba(212, 175, 55, 0.5);
+  padding-top: 0.85rem;
+}
+
+.manuales-pasos h3 {
+  color: #d4af37;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.manuales-pasos p {
+  color: #aaa;
+  line-height: 1.65;
+}
+
+@media (max-width: 600px) {
+  .manuales-pagina {
+    padding-top: 1.5rem;
+  }
+
+  .manuales-cabecera h1 {
+    font-size: 1.65rem;
+  }
+}

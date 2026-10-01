@@ -47,3 +47,11 @@ La aplicacion interactua con dos tablas principales en Supabase:
 - **Supabase JavaScript Client**
 - **CSS Vanilla**
 
+## Activar almacenamiento compartido
+
+La aplicación guarda vendedores y reseñas en Supabase para que estén disponibles para todos los visitantes. En un proyecto nuevo, abre el SQL Editor de Supabase y ejecuta `supabase/schema.sql` para crear las tablas `vendedor` y `comentario`, sus claves e índices y las políticas de lectura e inserción públicas.
+
+Si las tablas ya existen, confirma que sus columnas y tipos coincidan antes de ejecutar el script. El sitio no autentica usuarios: las políticas permiten inserciones anónimas y no ofrecen moderación ni control por roles. Usa únicamente la clave pública de Supabase en el frontend; nunca publiques la clave `service_role`.
+
+Cuando Supabase no está disponible, los nuevos registros se guardan en `localStorage` como respaldo de ese navegador y no se comparten con otros usuarios.
+
