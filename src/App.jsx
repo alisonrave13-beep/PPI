@@ -10,21 +10,24 @@ import RegistroVendedor from "./pages/RegistroVendedor.jsx";
 import Manuales from "./pages/Manuales.jsx";
 import { IdiomaProvider } from "./i18n.jsx";
 
-const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/noticias", element: <Noticias /> },
-      { path: "/cryptos", element: <Cryptos /> },
-      { path: "/reseñas", element: <Reseñas /> },
-      { path: "/contacto", element: <Contacto /> },
-      { path: "/registro-vendedor", element: <RegistroVendedor /> },
-      { path: "/manuales", element: <Manuales /> },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      element: <Layout />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "/about", element: <About /> },
+        { path: "/noticias", element: <Noticias /> },
+        { path: "/cryptos", element: <Cryptos /> },
+        { path: "/reseñas", element: <Reseñas /> },
+        { path: "/contacto", element: <Contacto /> },
+        { path: "/registro-vendedor", element: <RegistroVendedor /> },
+        { path: "/manuales", element: <Manuales /> },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+);
 
 const App = () => {
   return <RouterProvider router={router} />;
