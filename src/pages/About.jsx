@@ -43,7 +43,7 @@ const About = () => {
         <div className="about-integrante">
           <div className="about-integrante-icono"><FaUser /></div>
           <span className="about-integrante-numero">05</span>
-          <p>Jeronimo Negrerte Arango</p>
+          <p>Jeronimo Negrete Arango</p>
         </div>
       </div>
     </div>
@@ -81,7 +81,7 @@ const About = () => {
         <div className="about-valor-icono">
           <FaBookReader style={{ color: '#ffb703' }} />
         </div>
-        <p className="about-valor-nombre">{t('Educasion')}</p>
+        <p className="about-valor-nombre">{t('Educacion')}</p>
         <p className="about-valor-texto">{t('Aprende sin miedo sobre el mundo crypto.')}</p>
       </div>
     </div>
